@@ -11,8 +11,6 @@ count = 100
 owner_id_inputed = input('Введите сообщество: ')
 # publicdarkperm   -  проверочная группа
 
-# сделать def. это что бы принимать не только имя, то и когда группа имеет просто id******
-
 check_inputed = requests.get('https://api.vk.com/method/utils.resolveScreenName', {
         'screen_name': owner_id_inputed,
         'access_token': access_token,
@@ -21,8 +19,6 @@ check_inputed = requests.get('https://api.vk.com/method/utils.resolveScreenName'
 owner_id = (0 - check_inputed.json()["response"]['object_id'])
 print(owner_id)
 
-# проверка ввода domain
-# print('Ошибка ввода. Перепроверьте, что введенный домен существует')
 
 def posts_collector(access_token, api_version, offset, count, owner_id):
     posts = []
